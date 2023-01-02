@@ -94,6 +94,27 @@ int main()
 				map[y][x] = '&';
 			}
 		}
+		if (GetAsyncKeyState(VK_RIGHT))
+		{
+			int x2 = x + 1;
+			if (map[y][x2] == ' ')
+			{
+				map[y][x] = ' ';
+				x++;
+				map[y][x] = '&';
+			}
+		}
+		if (GetAsyncKeyState(VK_LEFT))
+		{
+			int x2 = x - 1;
+			if (map[y][x2] == ' ')
+			{
+				map[y][x] = ' ';
+				x--;
+				map[y][x] = '&';
+			}
+		}
+		
 		
 	}
 
