@@ -7,28 +7,32 @@ using namespace std;
 
 bool game_running = true;
 
-int x = 1;
-int y = 1;
+int x = 69;
+int y = 17;
+bool krcma;
+bool obchod;
+bool praca;
+bool dom;
 
 char map[19][80] = {
 	"###############################################################################",
-	"#&                                                                            #",
+	"#                                                                             #",
+	"#                            ____________                                     #",
+	"#                            #  Obchod  #                                     #",
+	"#                            #          #                                     #",
+	"#                     _______#          #         _____________________       #",
+	"#                    # Krcma #          #         #       Praca       #       #",
+	"#                    #  ___  #   ____   #         #        ___        #       #",
+	"#                    #__# #__#___#  #___#         #________# #________#       #",
 	"#                                                                             #",
 	"#                                                                             #",
 	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
+	"#                                                                          ___#",
+	"#                                                                         /   #",
+	"#                                                                        /____#",
+	"#                                                                       /# Dom#",
+	"#                                                                        #    #",
+	"#                                                                    &   !    #",
 	"###############################################################################", };
 	
 int main()
@@ -115,6 +119,51 @@ int main()
 			}
 		}
 		
+		if (map[8][25] == '&')
+		{
+			krcma = true;
+		}
+
+		else if (map[8][34] == '&' || map[8][35] == '&')
+		{
+			obchod = true;
+		}
+
+		else if (map[8][60] == '&')
+		{
+			praca = true;
+		}
+
+		else if (map[17][72] == '&')
+		{
+			dom = true;
+		}
+
+		while (krcma == true)
+		{
+			system("CLS");
+			cout << "Krcma";
+			system("pause>nul");
+		}
+
+		while (obchod == true)
+		{
+			system("CLS");
+			cout << "Obchod";
+			system("pause>nul");
+		}
+		while (praca == true)
+		{
+			system("CLS");
+			cout << "Robota";
+			system("pause>nul");
+		}
+		while (dom == true)
+		{
+			system("CLS");
+			cout << "dom";
+			system("pause>nul");
+		}
 		
 	}
 
