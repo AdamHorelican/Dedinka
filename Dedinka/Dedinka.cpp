@@ -1,10 +1,13 @@
-#include <iostream>
+﻿#include <iostream>
 #include <iomanip> //setw
 #include <Windows.h>
 
 using namespace std;
 
 bool game_running = true;
+
+int yy = 8;
+int xx = 2;
 
 int y = 17;
 int x = 69;
@@ -15,49 +18,49 @@ bool dom;
 
 
 
-void pohyb(char Map[19][80])
+void pohyb(char Map[13][23])
 {	
 	
 	if (GetAsyncKeyState(VK_DOWN))
 	{
 		
-		int y2 = y + 1;
-		if (Map[y2][x] == ' ')
+		int y2 = yy + 1;
+		if (Map[y2][xx] == ' ')
 		{
-			Map[y][x] = ' ';
-			y++;
-			Map[y][x] = '&';
+			Map[yy][xx] = ' ';
+			yy++;
+			Map[yy][xx] = '&';
 		}
 	}
 	if (GetAsyncKeyState(VK_UP))
 	{
-		int y2 = y - 1;
-		if (Map[y2][x] == ' ')
+		int y2 = yy - 1;
+		if (Map[y2][xx] == ' ')
 		{
-			Map[y][x] = ' ';
-			y--;
-			Map[y][x] = '&';
+			Map[yy][xx] = ' ';
+			yy--;
+			Map[yy][xx] = '&';
 		}
 	}
 	if (GetAsyncKeyState(VK_RIGHT))
 	{
-		int x2 = x + 1;
-		if (Map[y][x2] == ' ')
+		int x2 = xx + 1;
+		if (Map[yy][x2] == ' ')
 		{
-			Map[y][x] = ' ';
-			x++;
-			Map[y][x] = '&';
+			Map[yy][xx] = ' ';
+			xx++;
+			Map[yy][xx] = '&';
 
 		}
 	}
 	if (GetAsyncKeyState(VK_LEFT))
 	{
-		int x2 = x - 1;
-		if (Map[y][x2] == ' ')
+		int x2 = xx - 1;
+		if (Map[yy][x2] == ' ')
 		{
-			Map[y][x] = ' ';
-			x--;
-			Map[y][x] = '&';
+			Map[yy][xx] = ' ';
+			xx--;
+			Map[yy][xx] = '&';
 		}
 	}
 }
@@ -106,90 +109,64 @@ int main()
 	"#                                                                    &   !    #",
 	"###############################################################################", };
 
+	char Domov[13][23] = {
+	"######################",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"!                    #",
+	"#                    #",
+	"#                    #",
+	"######################" };
 
-	char Krcmap[19][80] = {
-	"###############################################################################",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                        KRCMa                                                #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"###############################################################################", };
 
-	char Obchod[19][80] = {
-	"###############################################################################",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                        Obchod                                               #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"###############################################################################", };
+	char Praca[13][23] = {
+	"######################",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"!                    #",
+	"#                    #",
+	"#                    #",
+	"######################" };
 
-	char Praca[19][80] = {
-	"###############################################################################",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                        Praca                                                #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"###############################################################################", };
+	char Krcma[13][23] = {
+	"######################",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"!                    #",
+	"#                    #",
+	"#                    #",
+	"######################" };
 
-	char Domov[19][80] = {
-	"###############################################################################",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                        Domov                                                #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"#                                                                             #",
-	"###############################################################################", };
+	char Obchod[13][23] = {
+	"######################",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"!                    #",
+	"#                    #",
+	"#                    #",
+	"######################" };
+
+	
 
 
 	for (int i = 0; i < 19; i++)
@@ -212,7 +189,48 @@ int main()
 		}
 		system("pause>nul");
 		
-		pohyb(map);
+		if (GetAsyncKeyState(VK_DOWN))
+		{
+
+			int y2 = y + 1;
+			if (map[y2][x] == ' ')
+			{
+				map[y][x] = ' ';
+				y++;
+				map[y][x] = '&';
+			}
+		}
+		if (GetAsyncKeyState(VK_UP))
+		{
+			int y2 = y - 1;
+			if (map[y2][x] == ' ')
+			{
+				map[y][x] = ' ';
+				y--;
+				map[y][x] = '&';
+			}
+		}
+		if (GetAsyncKeyState(VK_RIGHT))
+		{
+			int x2 = x + 1;
+			if (map[y][x2] == ' ')
+			{
+				map[y][x] = ' ';
+				x++;
+				map[y][x] = '&';
+
+			}
+		}
+		if (GetAsyncKeyState(VK_LEFT))
+		{
+			int x2 = x - 1;
+			if (map[y][x2] == ' ')
+			{
+				map[y][x] = ' ';
+				x--;
+				map[y][x] = '&';
+			}
+		}
 		
 		if (map[8][25] == '&')
 		{
@@ -237,42 +255,58 @@ int main()
 		while (krcma == true)
 		{
 			system("CLS");
-			for (int i = 0; i < 19; i++)
+			for (int i = 0; i < 13; i++)
 			{
-				cout << setw(90) << right << Krcmap[i] << endl;
+				cout << setw(50) << right << Krcma[i] << endl;
 			}
 			system("pause>nul");
-			pohyb(Krcmap);
+			pohyb(Krcma);
+			if (Krcma[8][1] == '&')
+			{
+				krcma = false;
+			}
 		}
 		while (obchod == true)
 		{
 			system("CLS");
-			for (int i = 0; i < 19; i++)
+			for (int i = 0; i < 13; i++)
 			{
-				cout << setw(90) << right << Obchod[i] << endl;
+				cout << setw(50) << right << Obchod[i] << endl;
 			}
 			system("pause>nul");
 			pohyb(Obchod);
+			if (Obchod[8][1] == '&')
+			{
+				obchod = false;
+			}
 		}
 		while (praca == true)
 		{
 			system("CLS");
-			for (int i = 0; i < 19; i++)
+			for (int i = 0; i < 13; i++)
 			{
-				cout << setw(90) << right << Praca[i] << endl;
+				cout << setw(50) << right << Praca[i] << endl;
 			}
 			system("pause>nul");
 			pohyb(Praca);
+			if (Praca[8][1] == '&')
+			{
+				praca = false;
+			}
 		}
 		while (dom == true)
 		{
 			system("CLS");
-			for (int i = 0; i < 19; i++)
+			for (int i = 0; i < 13; i++)
 			{
-				cout << setw(90) << right << Domov[i] << endl;
+				cout << setw(50) << right << Domov[i] << endl;
 			}
 			system("pause>nul");
 			pohyb(Domov);
+			if (Domov[8][1] == '&')
+			{
+				dom = false;
+			}
 		}
 		
 	}
