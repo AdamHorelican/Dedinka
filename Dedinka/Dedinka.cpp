@@ -15,7 +15,11 @@ bool krcma;
 bool obchod;
 bool praca;
 bool dom;
+bool hostinec;
+bool jaskyna;
+bool doly;
 
+int dukaty = 100;
 
 
 void pohyb(char Map[13][23])
@@ -86,7 +90,27 @@ int main()
 	"                                                                               ",
 	"                                                                               ",
 	"                                                                               ",
-	"                         << Press ENTER to continue >>                         " };
+	"                       << Stlac ENTER pre pokracovanie >>                      " };
+
+	string menu[] = { "                                                                               ",
+	"                                                                               ",
+	"                                                                               ",
+	"                                                                               ",
+	"                                                                               ",
+	"                                                                               ",
+	"                                (1) Moderna Doba                               ",
+	"                                                                               ",
+	"                                (2) Divoky Zapad                               ",
+	"                                                                               ",
+	"                                                                               ",
+	"                                                                               ",
+	"                                                                               ",
+	"                                                                               ",
+	"                                                                               ",
+	"                                                                               ",
+	"                                                                               ",
+	"                       << Vyber 1 alebo 2 pre vyber mapy >>                    ",
+	"                                                                               ", };
 
 	char map[19][80] = {
 	"###############################################################################",
@@ -94,10 +118,32 @@ int main()
 	"#                            ____________                                     #",
 	"#                            #  Obchod  #                                     #",
 	"#                            #          #                                     #",
-	"#                     _______#          #         _____________________       #",
+	"#                    ________#          #         _____________________       #",
 	"#                    # Krcma #          #         #       Praca       #       #",
 	"#                    #  ___  #   ____   #         #        ___        #       #",
 	"#                    #__# #__#___#  #___#         #________# #________#       #",
+	"#                                                                             #",
+	"#                                                                             #",
+	"#                                                                             #",
+	"#                                                                          ___#",
+	"#                                                                         /   #",
+	"#                                                                        /____#",
+	"#                                                                       /# Dom#",
+	"#                                                                        #    #",
+	"#                                                                    &   !    #",
+	"###############################################################################", };
+
+
+	char map2[19][80] = {
+	"###############################################################################",
+	"#                                                                             #",
+	"#                                                                             #",
+	"#                                                                             #",
+	"#                                                                             #",
+	"#                                                                             #",
+	"#                                                                             #",
+	"#                                                                             #",
+	"#                                                                             #",
 	"#                                                                             #",
 	"#                                                                             #",
 	"#                                                                             #",
@@ -166,7 +212,48 @@ int main()
 	"#                    #",
 	"######################" };
 
-	
+
+	char Jaskyna[13][23] = {
+	"######################",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"!                    #",
+	"#                    #",
+	"#                    #",
+	"######################" };
+
+	char Doly[13][23] = {
+	"######################",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"!                    #",
+	"#                    #",
+	"#                    #",
+	"######################" };
+
+	char Hostinec[13][23] = {
+	"######################",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"#                    #",
+	"!                    #",
+	"#                    #",
+	"#                    #",
+	"######################" };
 
 
 	for (int i = 0; i < 19; i++)
@@ -179,138 +266,283 @@ int main()
 		system("CLS");
 	}
 
+	for (int i = 0; i < 19; i++)
+	{
+		cout << setw(90) << right << menu[i] << endl;
 
-	while (game_running = true)
+	}
+	int vyber;
+	cin >> vyber;
+
+	if (vyber == 1)
 	{
 		system("CLS");
-		for (int i = 0; i < 19; i++)
-		{
-			cout << setw(90) << right << map[i] << endl;
-		}
-		system("pause>nul");
-		
-		if (GetAsyncKeyState(VK_DOWN))
-		{
-
-			int y2 = y + 1;
-			if (map[y2][x] == ' ')
-			{
-				map[y][x] = ' ';
-				y++;
-				map[y][x] = '&';
-			}
-		}
-		if (GetAsyncKeyState(VK_UP))
-		{
-			int y2 = y - 1;
-			if (map[y2][x] == ' ')
-			{
-				map[y][x] = ' ';
-				y--;
-				map[y][x] = '&';
-			}
-		}
-		if (GetAsyncKeyState(VK_RIGHT))
-		{
-			int x2 = x + 1;
-			if (map[y][x2] == ' ')
-			{
-				map[y][x] = ' ';
-				x++;
-				map[y][x] = '&';
-
-			}
-		}
-		if (GetAsyncKeyState(VK_LEFT))
-		{
-			int x2 = x - 1;
-			if (map[y][x2] == ' ')
-			{
-				map[y][x] = ' ';
-				x--;
-				map[y][x] = '&';
-			}
-		}
-		
-		if (map[8][25] == '&')
-		{
-			krcma = true;
-		}
-
-		else if (map[8][34] == '&' || map[8][35] == '&')
-		{
-			obchod = true;
-		}
-
-		else if (map[8][60] == '&')
-		{
-			praca = true;
-		}
-
-		else if (map[17][72] == '&')
-		{
-			dom = true;
-		}
-
-		while (krcma == true)
+		while (game_running = true)
 		{
 			system("CLS");
-			for (int i = 0; i < 13; i++)
+			for (int i = 0; i < 19; i++)
 			{
-				cout << setw(50) << right << Krcma[i] << endl;
+				cout << setw(90) << right << map[i] << endl;
 			}
 			system("pause>nul");
-			pohyb(Krcma);
-			if (Krcma[8][1] == '&')
+
+			if (GetAsyncKeyState(VK_DOWN))
 			{
-				krcma = false;
+
+				int y2 = y + 1;
+				if (map[y2][x] == ' ')
+				{
+					map[y][x] = ' ';
+					y++;
+					map[y][x] = '&';
+				}
 			}
+			if (GetAsyncKeyState(VK_UP))
+			{
+				int y2 = y - 1;
+				if (map[y2][x] == ' ')
+				{
+					map[y][x] = ' ';
+					y--;
+					map[y][x] = '&';
+				}
+			}
+			if (GetAsyncKeyState(VK_RIGHT))
+			{
+				int x2 = x + 1;
+				if (map[y][x2] == ' ')
+				{
+					map[y][x] = ' ';
+					x++;
+					map[y][x] = '&';
+
+				}
+			}
+			if (GetAsyncKeyState(VK_LEFT))
+			{
+				int x2 = x - 1;
+				if (map[y][x2] == ' ')
+				{
+					map[y][x] = ' ';
+					x--;
+					map[y][x] = '&';
+				}
+			}
+
+			if (map[8][25] == '&')
+			{
+				krcma = true;
+			}
+
+			else if (map[8][34] == '&' || map[8][35] == '&')
+			{
+				obchod = true;
+			}
+
+			else if (map[8][60] == '&')
+			{
+				praca = true;
+			}
+
+			else if (map[17][72] == '&')
+			{
+				dom = true;
+			}
+
+			while (krcma == true)
+			{
+				system("CLS");
+				for (int i = 0; i < 13; i++)
+				{
+					cout << setw(50) << right << Krcma[i] << endl;
+				}
+				system("pause>nul");
+				pohyb(Krcma);
+				if (Krcma[8][1] == '&')
+				{
+					krcma = false;
+				}
+			}
+			while (obchod == true)
+			{
+				system("CLS");
+				for (int i = 0; i < 13; i++)
+				{
+					cout << setw(50) << right << Obchod[i] << endl;
+				}
+				system("pause>nul");
+				pohyb(Obchod);
+				if (Obchod[8][1] == '&')
+				{
+					obchod = false;
+				}
+			}
+			while (praca == true)
+			{
+				system("CLS");
+				for (int i = 0; i < 13; i++)
+				{
+					cout << setw(50) << right << Praca[i] << endl;
+				}
+				system("pause>nul");
+				pohyb(Praca);
+				if (Praca[8][1] == '&')
+				{
+					praca = false;
+				}
+			}
+			while (dom == true)
+			{
+				system("CLS");
+				for (int i = 0; i < 13; i++)
+				{
+					cout << setw(50) << right << Domov[i] << endl;
+				}
+				system("pause>nul");
+				pohyb(Domov);
+				if (Domov[8][1] == '&')
+				{
+					dom = false;
+				}
+			}
+
 		}
-		while (obchod == true)
-		{
-			system("CLS");
-			for (int i = 0; i < 13; i++)
-			{
-				cout << setw(50) << right << Obchod[i] << endl;
-			}
-			system("pause>nul");
-			pohyb(Obchod);
-			if (Obchod[8][1] == '&')
-			{
-				obchod = false;
-			}
-		}
-		while (praca == true)
-		{
-			system("CLS");
-			for (int i = 0; i < 13; i++)
-			{
-				cout << setw(50) << right << Praca[i] << endl;
-			}
-			system("pause>nul");
-			pohyb(Praca);
-			if (Praca[8][1] == '&')
-			{
-				praca = false;
-			}
-		}
-		while (dom == true)
-		{
-			system("CLS");
-			for (int i = 0; i < 13; i++)
-			{
-				cout << setw(50) << right << Domov[i] << endl;
-			}
-			system("pause>nul");
-			pohyb(Domov);
-			if (Domov[8][1] == '&')
-			{
-				dom = false;
-			}
-		}
-		
 	}
 
+	else if (vyber == 2)
+	{
+		system("CLS");
+		while (game_running = true)
+		{
+			system("CLS");
+			for (int i = 0; i < 19; i++)
+			{
+				cout << setw(90) << right << map2[i] << endl;
+			}
+			system("pause>nul");
+
+			if (GetAsyncKeyState(VK_DOWN))
+			{
+
+				int y2 = y + 1;
+				if (map2[y2][x] == ' ')
+				{
+					map2[y][x] = ' ';
+					y++;
+					map2[y][x] = '&';
+				}
+			}
+			if (GetAsyncKeyState(VK_UP))
+			{
+				int y2 = y - 1;
+				if (map2[y2][x] == ' ')
+				{
+					map2[y][x] = ' ';
+					y--;
+					map2[y][x] = '&';
+				}
+			}
+			if (GetAsyncKeyState(VK_RIGHT))
+			{
+				int x2 = x + 1;
+				if (map2[y][x2] == ' ')
+				{
+					map2[y][x] = ' ';
+					x++;
+					map2[y][x] = '&';
+
+				}
+			}
+			if (GetAsyncKeyState(VK_LEFT))
+			{
+				int x2 = x - 1;
+				if (map2[y][x2] == ' ')
+				{
+					map2[y][x] = ' ';
+					x--;
+					map2[y][x] = '&';
+				}
+			}
+
+			if (map2[8][25] == '&')
+			{
+				hostinec = true;
+			}
+
+			else if (map2[8][34] == '&' || map2[8][35] == '&')
+			{
+				jaskyna = true;
+			}
+
+			else if (map2[8][60] == '&')
+			{
+				doly = true;
+			}
+
+			else if (map2[17][72] == '&')
+			{
+				dom = true;
+			}
+
+			while (hostinec == true)
+			{
+				system("CLS");
+				for (int i = 0; i < 13; i++)
+				{
+					cout << setw(50) << right << Hostinec[i] << endl;
+				}
+				system("pause>nul");
+				pohyb(Hostinec);
+				if (Hostinec[8][1] == '&')
+				{
+					hostinec = false;
+				}
+			}
+			while (jaskyna == true)
+			{
+				system("CLS");
+				for (int i = 0; i < 13; i++)
+				{
+					cout << setw(50) << right << Jaskyna[i] << endl;
+				}
+				system("pause>nul");
+				pohyb(Jaskyna);
+				if (Jaskyna[8][1] == '&')
+				{
+					jaskyna = false;
+				}
+			}
+			while (doly == true)
+			{
+				system("CLS");
+				for (int i = 0; i < 13; i++)
+				{
+					cout << setw(50) << right << Doly[i] << endl;
+				}
+				system("pause>nul");
+				pohyb(Doly);
+				if (Doly[8][1] == '&')
+				{
+					doly = false;
+				}
+			}
+			while (dom == true)
+			{
+				system("CLS");
+				for (int i = 0; i < 13; i++)
+				{
+					cout << setw(50) << right << Domov[i] << endl;
+				}
+				system("pause>nul");
+				pohyb(Domov);
+				if (Domov[8][1] == '&')
+				{
+					dom = false;
+				}
+			}
+
+		}
+	}
 
 	return 0;
 }
