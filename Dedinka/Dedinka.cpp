@@ -19,6 +19,8 @@ bool hostinec;
 bool jaskyna;
 bool doly;
 
+bool nakupovanie;
+
 int dukaty = 100;
 
 
@@ -255,6 +257,7 @@ int main()
 	"#           *#*  *#* #",
 	"######################" };
 
+	string produkty[] = { "(1) maso  ", "(2) pecivo", "(3) ovocie", "(4) napoj ", " ", "(5) exit  "};
 
 	for (int i = 0; i < 19; i++)
 	{
@@ -372,6 +375,49 @@ int main()
 				}
 				system("pause>nul");
 				pohyb(Obchod);
+				if (Obchod[9][9] == '&' || Obchod[9][10] == '&' || Obchod[9][11] == '&' || Obchod[9][12] == '&')
+				{
+					nakupovanie = true;
+					system("CLS");
+					for (int i = 0; i < 6; i++)
+					{
+						cout << setw(50) << right << produkty[i] << endl;
+					}
+					system("pause>nul");
+					
+					while (nakupovanie == true)
+					{
+						
+						int a;
+						cin >> a;
+						if (a == 1)
+						{
+							cout << "Kupil si maso" << endl;
+							
+						}
+						if (a == 2)
+						{
+							cout << "Kupil si pecivo" << endl;
+							
+						}
+						if (a == 3)
+						{
+							cout << "Kupil si ovocie" << endl;
+							
+						}
+						if (a == 4)
+						{
+							cout << "Kupil si napoj" << endl;
+							
+						}
+						if (a == 5)
+						{
+							nakupovanie = false;
+						}
+					
+					}
+					
+				}
 				if (Obchod[8][1] == '&')
 				{
 					obchod = false;
