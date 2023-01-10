@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 #include <iomanip> //setw
 #include <Windows.h>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -20,6 +22,8 @@ bool jaskyna;
 bool doly;
 
 bool nakupovanie;
+bool ponuka_krcma;
+
 
 int dukaty = 100;
 
@@ -71,9 +75,18 @@ void pohyb(char Map[13][23])
 	}
 }
 
+void kupa()
+{
+	
+	
+}
 
 int main()
 {
+	//ofstream Wfile("dukaty.txt");
+	//Wfile << dukaty;
+	//Wfile.close();
+
 	string title[] = { "                                                                               ",
 	"                                                                               ",
 	"                                                                               ",
@@ -259,6 +272,8 @@ int main()
 
 	string produkty[] = { "(1) maso  ", "(2) pecivo", "(3) ovocie", "(4) napoj ", " ", "(5) exit  "};
 
+	string napoje[] = { "(1) pivo     ", "(2) rum      ", "(3) mineralka", "(4) kofolka  ", " ", "(5) exit     "};
+
 	for (int i = 0; i < 19; i++)
 	{
 		cout << setw(90) << right << title[i] << endl;
@@ -361,6 +376,48 @@ int main()
 				}
 				system("pause>nul");
 				pohyb(Krcma);
+				if (Krcma[5][16] == '&' || Krcma[6][16] == '&' || Krcma[7][16] == '&')
+				{
+					ponuka_krcma = true;
+					system("CLS");
+					for (int i = 0; i < 6; i++)
+					{
+						cout << setw(50) << right << napoje[i] << endl;
+					}
+					system("pause>nul");
+
+					while (ponuka_krcma == true)
+					{
+
+						int a;
+						cin >> a;
+						if (a == 1)
+						{
+							cout << "Kupil si pivo" << endl;
+							
+						}
+						if (a == 2)
+						{
+							cout << "Kupil si rum" << endl;
+							kupa();
+						}
+						if (a == 3)
+						{
+							cout << "Kupil si mineralku" << endl;
+							kupa();
+						}
+						if (a == 4)
+						{
+							cout << "Kupil si kofolku" << endl;
+							kupa();
+						}
+						if (a == 5)
+						{
+							ponuka_krcma = false;
+						}
+
+					}
+				}
 				if (Krcma[8][1] == '&')
 				{
 					krcma = false;
@@ -393,22 +450,36 @@ int main()
 						if (a == 1)
 						{
 							cout << "Kupil si maso" << endl;
-							
+							/*
+							Wfile.open("dukaty.txt", ios::in);
+							if (Wfile) {
+								int ch;
+								while (1) {
+									Wfile >> ch;
+									if (Wfile.eof())
+										break;
+									ch = ch - 25;
+									cout << ch;
+								}
+							}
+
+							Wfile.close();
+							*/
 						}
 						if (a == 2)
 						{
 							cout << "Kupil si pecivo" << endl;
-							
+							kupa();
 						}
 						if (a == 3)
 						{
 							cout << "Kupil si ovocie" << endl;
-							
+							kupa();
 						}
 						if (a == 4)
 						{
 							cout << "Kupil si napoj" << endl;
-							
+							kupa();
 						}
 						if (a == 5)
 						{
