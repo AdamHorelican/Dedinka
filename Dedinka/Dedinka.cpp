@@ -7,10 +7,9 @@
 using namespace std;
 
 bool game_running = true;
-
 int yy = 8;
 int xx = 2;
-
+int h = 0;
 int y = 17;
 int x = 69;
 bool krcma;
@@ -20,9 +19,13 @@ bool dom;
 bool hostinec;
 bool jaskyna;
 bool doly;
+bool spanie;
+
+
 
 bool nakupovanie;
 bool ponuka_krcma;
+bool vyber_hostinec;
 
 
 int dukaty = 100;
@@ -78,6 +81,12 @@ void pohyb(char Map[13][23])
 void kupa()
 {
 	
+	
+}
+void tazenie()
+{
+	system("pause>nul");
+	cout << setw(50) << right << "Gratulujem! Vytazil si diamant. " << endl;
 	
 }
 
@@ -246,14 +255,14 @@ int main()
 	"######################",
 	"#                  ###",
 	"###  ##########    ###",
-	"###  ##              #",
+	"###* ##             *#",
 	"#######   ############",
 	"#####           ######",
-	"#####   #   #   ######",
-	"#####   #####   ###  #",
+	"#####   # * #   ######",
+	"#####   #####   ###* #",
 	"!          ##   ###  #",
 	"#########  ##   ###  #",
-	"######     ##        #",
+	"######*    ##        #",
 	"######################" };
 
 	char Hostinec[13][23] = {
@@ -266,13 +275,15 @@ int main()
 	"#  *#*          *#*  #",
 	"#               *#*  #",
 	"!                    #",
-	"#*********           #",
-	"#           *#*  *#* #",
+	"#  ***-***           #",
+	"#  *     *  *#*  *#* #",
 	"######################" };
 
 	string produkty[] = { "(1) maso  ", "(2) pecivo", "(3) ovocie", "(4) napoj ", " ", "(5) exit  "};
 
 	string napoje[] = { "(1) pivo     ", "(2) rum      ", "(3) mineralka", "(4) kofolka  ", " ", "(5) exit     "};
+
+	string ponuka_hostinec[] = { "(1) konak          ", "(2) whisky         ", "(3) udene koleno   ", "(4) telacie kotlety", " ", "(5) exit           " };
 
 	for (int i = 0; i < 19; i++)
 	{
@@ -355,6 +366,7 @@ int main()
 			else if (map[8][34] == '&' || map[8][35] == '&')
 			{
 				obchod = true;
+	
 			}
 
 			else if (map[8][60] == '&')
@@ -503,8 +515,41 @@ int main()
 				}
 				system("pause>nul");
 				pohyb(Praca);
-				if (Praca[8][1] == '&')
+				if (h == 0)
 				{
+					if (Praca[2][9] == '&' || Praca[5][9] == '&' || Praca[8][9] == '&')
+					{
+						system("CLS");
+						int odrobene_hodiny;
+						int plat = 15;
+						cout << " Kolko hodin si prave odrobil? " << endl;
+						cin >> odrobene_hodiny;
+						if (odrobene_hodiny >= 2 && odrobene_hodiny <= 10)
+						{
+							cout << "Zarobil si " << odrobene_hodiny * plat << " dukatov" << endl;
+							h++;
+							
+						}
+						else
+						{
+							cout << "Neklam, povedz pravdu!!!" << endl;
+
+						}
+						system("pause>nul");
+					}
+				}
+				else if (h != 0)
+				{	
+					system("CLS");
+					cout << setw(50) << right << "Dnes si uz pracoval, chod sa vyspat" << endl;
+					system("pause>nul");
+					praca = false;
+				}
+				
+				
+
+				if (Praca[8][1] == '&')
+				{					
 					praca = false;
 				}
 			}
@@ -517,6 +562,25 @@ int main()
 				}
 				system("pause>nul");
 				pohyb(Domov);
+				if (Domov[2][4] == '&')
+				{
+					spanie = true;
+					while (spanie == true)
+					{
+						cout << setw(60) << right << "Vyspal si sa" << endl;
+						if (h == 1)
+						{
+							h--;
+						}
+						system("pause>nul");
+						Praca[2][9] = ' ';
+						Praca[5][9] = ' ';
+						Praca[8][9] = ' ';
+						spanie = false;
+
+					}
+				}
+
 				if (Domov[8][1] == '&')
 				{
 					dom = false;
@@ -610,11 +674,55 @@ int main()
 				}
 				system("pause>nul");
 				pohyb(Hostinec);
+				if (Hostinec[8][5] == '&' || Hostinec[8][6] == '&' || Hostinec[8][7] == '&')
+				{
+					vyber_hostinec = true;
+					system("CLS");
+					for (int i = 0; i < 6; i++)
+					{
+						cout << setw(50) << right << ponuka_hostinec[i] << endl;
+					}
+					system("pause>nul");
+
+					while (vyber_hostinec == true)
+					{
+
+						int a;
+						cin >> a;
+						if (a == 1)
+						{
+							cout << "Kupil si konak" << endl;
+
+						}
+						if (a == 2)
+						{
+							cout << "Kupil si whisky" << endl;
+							kupa();
+						}
+						if (a == 3)
+						{
+							cout << "Kupil si udene koleno" << endl;
+							kupa();
+						}
+						if (a == 4)
+						{
+							cout << "Kupil si telacie kotlety" << endl;
+							kupa();
+						}
+						if (a == 5)
+						{
+							vyber_hostinec = false;
+						}
+
+					}
+					
+				}
 				if (Hostinec[8][1] == '&')
 				{
 					hostinec = false;
 				}
 			}
+
 			while (jaskyna == true)
 			{
 				system("CLS");
@@ -629,6 +737,7 @@ int main()
 					jaskyna = false;
 				}
 			}
+
 			while (doly == true)
 			{
 				system("CLS");
@@ -638,11 +747,60 @@ int main()
 				}
 				system("pause>nul");
 				pohyb(Doly);
+				if (h==0)
+				{
+					if (Doly[2][3] == '&' || Doly[2][4] == '&')
+					{
+						Doly[3][3] = ' ';
+
+					}
+					else if (Doly[3][19] == '&')
+					{
+						Doly[3][20] = ' ';
+
+					}
+					else if (Doly[5][10] == '&')
+					{
+						Doly[6][10] = ' ';
+
+					}
+					else if (Doly[8][19] == '&' || Doly[8][20] == '&')
+					{
+						Doly[7][19] = ' ';
+
+					}
+					else if (Doly[10][7] == '&')
+					{
+						Doly[10][6] = ' ';
+
+					}
+
+					if ((Doly[3][3] == ' ') && (Doly[3][20] == ' ') && (Doly[6][10] == ' ') && (Doly[7][19] == ' ') && (Doly[10][6] == ' '))
+					{
+						system("CLS");
+						cout << setw(50) << right << "Gratulujem! Pozbieral si vsetky diamanty. +150 dukatov" << endl;
+						system("pause>nul");
+						h++;
+						doly = false;
+						yy = 8;
+						xx = 2;
+					}
+				
+				}
+				else if (h != 0)
+				{
+					system("CLS");
+					cout << setw(50) << right << "Dnes si uz pozbieral vsetky diamanty, chod sa vyspat" << endl;
+					system("pause>nul");
+					doly = false;
+				}
+								
 				if (Doly[8][1] == '&')
 				{
 					doly = false;
 				}
 			}
+
 			while (dom == true)
 			{
 				system("CLS");
@@ -652,14 +810,43 @@ int main()
 				}
 				system("pause>nul");
 				pohyb(Domov);
+				if (Domov[2][4] == '&')
+				{
+					spanie = true;
+					while (spanie == true)
+					{
+						cout << setw(60) << right << "Vyspal si sa" << endl;
+						if (h == 1)
+						{
+							h--;
+						}
+						system("pause>nul");
+						Doly[2][3] = ' ';
+						Doly[2][4] = ' ';
+						Doly[3][19] = ' ';
+						Doly[5][10] = ' ';
+						Doly[8][19] = ' ';
+						Doly[8][20] = ' ';
+						Doly[10][7] = ' ';
+						Doly[3][3] = '*';
+						Doly[3][20] = '*';
+						Doly[6][10] = '*';
+						Doly[7][19] = '*';
+						Doly[10][6] = '*';
+
+						spanie = false;
+
+					}
+				}
 				if (Domov[8][1] == '&')
 				{
 					dom = false;
 				}
 			}
 
+
+			
 		}
 	}
-
 	return 0;
 }
