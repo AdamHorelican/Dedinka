@@ -28,7 +28,7 @@ bool ponuka_krcma;
 bool vyber_hostinec;
 
 
-int dukaty = 100;
+int dukaty;
 
 
 void pohyb(char Map[13][23])
@@ -92,9 +92,20 @@ void tazenie()
 
 int main()
 {
-	//ofstream Wfile("dukaty.txt");
-	//Wfile << dukaty;
-	//Wfile.close();
+	ifstream my_file;
+	my_file.open("dukaty.txt", ios::in);
+	if (my_file) 
+	{
+		int ch;
+		while (1) {
+			my_file >> ch;
+			if (my_file.eof())
+				break;
+		}
+		dukaty = ch;
+	}
+	my_file.close();
+
 
 	string title[] = { "                                                                               ",
 	"                                                                               ",
@@ -357,7 +368,7 @@ int main()
 					map[y][x] = '&';
 				}
 			}
-
+			
 			if (map[8][25] == '&')
 			{
 				krcma = true;
