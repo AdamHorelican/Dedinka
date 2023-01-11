@@ -12,6 +12,7 @@ int xx = 2;
 int h = 0;
 int y = 17;
 int x = 69;
+int hp = 100;
 bool krcma;
 bool obchod;
 bool praca;
@@ -78,11 +79,6 @@ void pohyb(char Map[13][23])
 	}
 }
 
-void kupa()
-{
-	
-	
-}
 void tazenie()
 {
 	system("pause>nul");
@@ -316,8 +312,9 @@ int main()
 
 	if (vyber == 1)
 	{
+
 		system("CLS");
-		while (game_running = true)
+		while (game_running == true)
 		{
 			system("CLS");
 			for (int i = 0; i < 19; i++)
@@ -416,46 +413,65 @@ int main()
 						cin >> a;
 						if (a == 1)
 						{  
-							if (dukaty >= 25) {
+							if (dukaty >= 25 && hp <= 75) {
 								dukaty = dukaty - 25;
+								hp = hp + 25;
 								cout << "Kupil si pivo" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
+
 							}
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
+
 							}
 						}
 						if (a == 2)
 						{
-							if (dukaty >= 35) {
+							if (dukaty >= 35 && hp <= 65) {
 								dukaty = dukaty - 35;
+								hp = hp + 35;
 								cout << "Kupil si rum" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
 							}	
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
 							}
 						}
 						if (a == 3)
 						{
-							if (dukaty >= 10) {
+							if (dukaty >= 10 && hp <= 90) {
 								dukaty = dukaty - 10;
+								hp = hp + 10;
 								cout << "Kupil si mineralku" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
 							}
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
 							}
 						}
 						if (a == 4)
 						{
-							if (dukaty >= 20) {
+							if (dukaty >= 20 && hp <= 80)
+							{
 								dukaty = dukaty - 20;
+								hp = hp + 20;
 								cout << "Kupil si kofolku" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
 							}
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
 							}
 						}
 						if (a == 5)
@@ -496,46 +512,62 @@ int main()
 						cin >> a;
 						if (a == 1)
 						{
-							if (dukaty >= 35) {
+							if (dukaty >= 35 && hp <= 65) {
 								dukaty = dukaty - 35;
+								hp = hp + 35;
 								cout << "Kupil si maso" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
 							}
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
 							}
 						}
 						if (a == 2)
 						{
-							if (dukaty >= 30) {
+							if (dukaty >= 30 && hp <= 70) {
 								dukaty = dukaty - 30;
+								hp = hp + 30;
 								cout << "Kupil si pecivo" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
 							}
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
 							}
 						}
 						if (a == 3)
 						{
-							if (dukaty >= 40) {
+							if (dukaty >= 40 && hp <= 60) {
 								dukaty = dukaty - 40;
+								hp = hp + 40;
 								cout << "Kupil si ovocie" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
 							}
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
 							}
 						}
 						if (a == 4)
 						{
-							if (dukaty >= 15) {
+							if (dukaty >= 15 && hp <= 85) {
 								dukaty = dukaty - 15;
+								hp = hp + 15;
 								cout << "Kupil si napoj" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
 							}
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
 							}
 						}
 						if (a == 5)
@@ -571,19 +603,32 @@ int main()
 						cin >> odrobene_hodiny;
 						if (odrobene_hodiny >= 2 && odrobene_hodiny <= 10)
 						{
-							dukaty += odrobene_hodiny * plat;
-							cout << "Zarobil si " << odrobene_hodiny * plat << " dukatov" << endl;
-							cout << "Mas " << dukaty << " dukatov" << endl;
-							h++;
-							if (dukaty >= 600)
+							hp = hp - 45;
+							if (hp <= 0)
 							{
 								system("CLS");
-								cout << "\n" << "\n" << "\n" << "\n" << setw(60) << right << "Vyhral si hru!" << endl;
+								cout << "Zomrel si " << endl;
 								system("pause>nul");
+								praca = false;
 								game_running = false;
-
 							}
-							
+							else
+							{
+								dukaty += odrobene_hodiny * plat;
+								cout << "Zarobil si " << odrobene_hodiny * plat << " dukatov" << endl;
+								cout << "Mas " << dukaty << " dukatov" << endl;
+								cout << "Ostava ti " << hp << "hp" << endl;
+								h++;
+								if (dukaty >= 600)
+								{
+									system("CLS");
+									cout << "\n" << "\n" << "\n" << "\n" << setw(60) << right << "Vyhral si hru!" << endl;
+									system("pause>nul");
+									game_running = false;
+
+								}
+							}
+		
 						}
 						else
 						{
@@ -598,13 +643,15 @@ int main()
 					system("CLS");
 					cout << setw(50) << right << "Dnes si uz pracoval, chod sa vyspat" << endl;
 					system("pause>nul");
+					yy = 8;
+					xx = 1;
 					praca = false;
 				}
 				
 				
-
 				if (Praca[8][1] == '&')
-				{					
+				{	
+				
 					praca = false;
 				}
 			}
@@ -629,12 +676,19 @@ int main()
 						}
 						system("pause>nul");
 						Praca[2][9] = ' ';
+						Praca[2][8] = ' ';
+						Praca[2][7] = ' ';
 						Praca[5][9] = ' ';
+						Praca[5][7] = ' ';
+						Praca[5][8] = ' ';
+						Praca[8][7] = ' ';
+						Praca[8][8] = ' ';
 						Praca[8][9] = ' ';
 						spanie = false;
 
 					}
 				}
+				
 
 				if (Domov[8][1] == '&')
 				{
@@ -647,7 +701,7 @@ int main()
 	else if (vyber == 2)
 	{
 		system("CLS");
-		while (game_running = true)
+		while (game_running == true)
 		{
 			system("CLS");
 			for (int i = 0; i < 19; i++)
@@ -745,46 +799,62 @@ int main()
 						cin >> a;
 						if (a == 1)
 						{
-							if (dukaty >= 35) {
+							if (dukaty >= 35 && hp <= 65) {
 								dukaty = dukaty - 35;
+								hp = hp + 35;
 								cout << "Kupil si konak" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
 							}
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
 							}
 						}
 						if (a == 2)
 						{
-							if (dukaty >= 40) {
+							if (dukaty >= 40 && hp <= 60) {
 								dukaty = dukaty - 40;
+								hp = hp + 40;
 								cout << "Kupil si whisky" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
 							}
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
 							}
 						}
 						if (a == 3)
 						{
-							if (dukaty >= 80) {
+							if (dukaty >= 80 && hp <= 20) {
 								dukaty = dukaty - 80;
+								hp = hp + 80;
 								cout << "Kupil si udene koleno" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
 							}
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
 							}
 						}
 						if (a == 4)
 						{
-							if (dukaty >= 60) {
+							if (dukaty >= 60 && hp <= 40) {
 								dukaty = dukaty - 60;
+								hp = hp + 60;
 								cout << "Kupil si telacie kotletky" << endl;
 								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+								cout << "Mas " << hp << " hp" << endl;
 							}
 							else {
-								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+								cout << "Nemas dostatok dukatov alebo mas dost hp" << endl;
+								cout << "Dukaty: " << dukaty << endl;
+								cout << "Hp: " << hp << endl;
 							}
 						}
 						if (a == 5)
@@ -856,22 +926,36 @@ int main()
 					if ((Doly[3][3] == ' ') && (Doly[3][20] == ' ') && (Doly[6][10] == ' ') && (Doly[7][19] == ' ') && (Doly[10][6] == ' '))
 					{
 						system("CLS");
-						dukaty += 150;
-						cout << setw(50) << left << "Gratulujem! Pozbieral si vsetky diamanty. +150 dukatov" << endl;
-						cout << "Mas " << dukaty << " dukatov" << endl;
-						system("pause>nul");
-						h++;
-						if (dukaty >= 600)
-						{
+						hp = hp - 45;
+						if (hp <= 0)
+						{	
 							system("CLS");
-							cout << "\n" << "\n" << "\n" << "\n" << setw(60) << right << "Vyhral si hru!" << endl;
+							cout << "Zomrel si " << endl;
 							system("pause>nul");
+							doly = false;
 							game_running = false;
-
 						}
-						doly = false;
-						yy = 8;
-						xx = 1;
+						else
+						{
+							dukaty += 150;
+							cout << setw(50) << left << "Gratulujem! Pozbieral si vsetky diamanty. +150 dukatov" << endl;
+							cout << "Mas " << dukaty << " dukatov" << endl;
+							cout << "Ostava ti " << hp << "hp" << endl;
+							system("pause>nul");
+							h++;
+							if (dukaty >= 600)
+							{
+								system("CLS");
+								cout << "\n" << "\n" << "\n" << "\n" << setw(60) << right << "Vyhral si hru!" << endl;
+								system("pause>nul");
+								game_running = false;
+
+							}
+							doly = false;
+							yy = 8;
+							xx = 1;
+						}
+						
 					}
 				
 				}
