@@ -290,11 +290,11 @@ int main()
 	"#  *     *  *#*  *#* #",
 	"######################" };
 
-	string produkty[] = { "(1) maso  ", "(2) pecivo", "(3) ovocie", "(4) napoj ", " ", "(5) exit  "};
+	string produkty[] = { "(1) maso   35d", "(2) pecivo 30d", "(3) ovocie 40d", "(4) napoj  15d", " ", "(5) exit   "};
 
-	string napoje[] = { "(1) pivo     ", "(2) rum      ", "(3) mineralka", "(4) kofolka  ", " ", "(5) exit     "};
+	string napoje[] = { "(1) pivo       25d", "(2) rum        35d", "(3) mineralka  10d", "(4) kofolka    20d", " ", "(5) exit         "};
 
-	string ponuka_hostinec[] = { "(1) konak          ", "(2) whisky         ", "(3) udene koleno   ", "(4) telacie kotlety", " ", "(5) exit           " };
+	string ponuka_hostinec[] = { "(1) konak           35d", "(2) whisky          40d", "(3) udene koleno    80d", "(4) telacie kotlety 60d", " ", "(5) exit            " };
 
 	for (int i = 0; i < 19; i++)
 	{
@@ -415,24 +415,48 @@ int main()
 						int a;
 						cin >> a;
 						if (a == 1)
-						{
-							cout << "Kupil si pivo" << endl;
-							
+						{  
+							if (dukaty >= 25) {
+								dukaty = dukaty - 25;
+								cout << "Kupil si pivo" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+							}
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 2)
 						{
-							cout << "Kupil si rum" << endl;
-							kupa();
+							if (dukaty >= 35) {
+								dukaty = dukaty - 35;
+								cout << "Kupil si rum" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+							}	
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 3)
 						{
-							cout << "Kupil si mineralku" << endl;
-							kupa();
+							if (dukaty >= 10) {
+								dukaty = dukaty - 10;
+								cout << "Kupil si mineralku" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+							}
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 4)
 						{
-							cout << "Kupil si kofolku" << endl;
-							kupa();
+							if (dukaty >= 20) {
+								dukaty = dukaty - 20;
+								cout << "Kupil si kofolku" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+							}
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 5)
 						{
@@ -472,37 +496,47 @@ int main()
 						cin >> a;
 						if (a == 1)
 						{
-							cout << "Kupil si maso" << endl;
-							/*
-							Wfile.open("dukaty.txt", ios::in);
-							if (Wfile) {
-								int ch;
-								while (1) {
-									Wfile >> ch;
-									if (Wfile.eof())
-										break;
-									ch = ch - 25;
-									cout << ch;
-								}
+							if (dukaty >= 35) {
+								dukaty = dukaty - 35;
+								cout << "Kupil si maso" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
 							}
-
-							Wfile.close();
-							*/
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 2)
 						{
-							cout << "Kupil si pecivo" << endl;
-							kupa();
+							if (dukaty >= 30) {
+								dukaty = dukaty - 30;
+								cout << "Kupil si pecivo" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+							}
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 3)
 						{
-							cout << "Kupil si ovocie" << endl;
-							kupa();
+							if (dukaty >= 40) {
+								dukaty = dukaty - 40;
+								cout << "Kupil si ovocie" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+							}
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 4)
 						{
-							cout << "Kupil si napoj" << endl;
-							kupa();
+							if (dukaty >= 15) {
+								dukaty = dukaty - 15;
+								cout << "Kupil si napoj" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+							}
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 5)
 						{
@@ -537,8 +571,18 @@ int main()
 						cin >> odrobene_hodiny;
 						if (odrobene_hodiny >= 2 && odrobene_hodiny <= 10)
 						{
+							dukaty += odrobene_hodiny * plat;
 							cout << "Zarobil si " << odrobene_hodiny * plat << " dukatov" << endl;
+							cout << "Mas " << dukaty << " dukatov" << endl;
 							h++;
+							if (dukaty >= 600)
+							{
+								system("CLS");
+								cout << "\n" << "\n" << "\n" << "\n" << setw(60) << right << "Vyhral si hru!" << endl;
+								system("pause>nul");
+								game_running = false;
+
+							}
 							
 						}
 						else
@@ -597,7 +641,6 @@ int main()
 					dom = false;
 				}
 			}
-
 		}
 	}
 
@@ -702,23 +745,47 @@ int main()
 						cin >> a;
 						if (a == 1)
 						{
-							cout << "Kupil si konak" << endl;
-
+							if (dukaty >= 35) {
+								dukaty = dukaty - 35;
+								cout << "Kupil si konak" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+							}
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 2)
 						{
-							cout << "Kupil si whisky" << endl;
-							kupa();
+							if (dukaty >= 40) {
+								dukaty = dukaty - 40;
+								cout << "Kupil si whisky" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+							}
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 3)
 						{
-							cout << "Kupil si udene koleno" << endl;
-							kupa();
+							if (dukaty >= 80) {
+								dukaty = dukaty - 80;
+								cout << "Kupil si udene koleno" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+							}
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 4)
 						{
-							cout << "Kupil si telacie kotlety" << endl;
-							kupa();
+							if (dukaty >= 60) {
+								dukaty = dukaty - 60;
+								cout << "Kupil si telacie kotletky" << endl;
+								cout << "Ostava ti " << dukaty << " dukatov" << endl;
+							}
+							else {
+								cout << "Nemas dostatok dukatov, tvoj zostatok je " << dukaty << endl;
+							}
 						}
 						if (a == 5)
 						{
@@ -789,12 +856,22 @@ int main()
 					if ((Doly[3][3] == ' ') && (Doly[3][20] == ' ') && (Doly[6][10] == ' ') && (Doly[7][19] == ' ') && (Doly[10][6] == ' '))
 					{
 						system("CLS");
-						cout << setw(50) << right << "Gratulujem! Pozbieral si vsetky diamanty. +150 dukatov" << endl;
+						dukaty += 150;
+						cout << setw(50) << left << "Gratulujem! Pozbieral si vsetky diamanty. +150 dukatov" << endl;
+						cout << "Mas " << dukaty << " dukatov" << endl;
 						system("pause>nul");
 						h++;
+						if (dukaty >= 600)
+						{
+							system("CLS");
+							cout << "\n" << "\n" << "\n" << "\n" << setw(60) << right << "Vyhral si hru!" << endl;
+							system("pause>nul");
+							game_running = false;
+
+						}
 						doly = false;
 						yy = 8;
-						xx = 2;
+						xx = 1;
 					}
 				
 				}
